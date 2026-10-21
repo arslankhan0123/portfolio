@@ -1,32 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light">
-    <div class="container">
-        <a class="navbar-brand" href="#home">
-            <div class="logo-container">
-                <img src="{{ asset('/frontend/assets/Profile-Pic.png') }}" alt="Arslan Khan" class="navbar-logo">
-                <div class="logo-glow"></div>
-            </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#home">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#about">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#skills">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#projects">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Contact</a>
-                </li>
-            </ul>
-        </div>
+<nav class="nav" id="mainNav">
+    <a class="nav-brand" href="#home">
+        <img src="{{ asset('/frontend/assets/Profile-Pic.png') }}"
+             alt="Arslan Khan"
+             class="nav-logo-img"
+             onerror="this.style.display='none'">
+        Arslan<span>.</span>
+    </a>
+
+    <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-cta">Hire Me</a>
     </div>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+    </button>
 </nav>
