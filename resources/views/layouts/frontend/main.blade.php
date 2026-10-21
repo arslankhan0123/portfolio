@@ -254,7 +254,7 @@
 
         /* Portrait card */
         .hero-visual { position:relative; display:flex; justify-content:center; animation:fadeUp 1s var(--ease) .5s both; }
-        .portrait-wrap { position:relative; width:min(420px,100%); aspect-ratio:4/5; }
+        .portrait-wrap { position:relative; width:min(420px,100%); aspect-ratio:1/1; }
         .portrait-ring {
             position:absolute; inset:-14%; border-radius:50%;
             border:1px dashed rgba(124,108,255,0.35);
@@ -264,7 +264,7 @@
         @keyframes rotate { to { transform:rotate(360deg); } }
         .portrait-card {
             position:relative; width:100%; height:100%;
-            border-radius:var(--r-xl); overflow:hidden;
+            border-radius:50%; overflow:hidden;
             background:linear-gradient(160deg, rgba(124,108,255,0.22), rgba(255,138,61,0.12));
             border:1px solid var(--line-2);
             box-shadow:0 40px 80px -30px rgba(124,108,255,0.5), inset 0 1px 0 rgba(255,255,255,0.12);
@@ -276,11 +276,12 @@
         .portrait-card img { width:100%; height:100%; object-fit:cover; object-position:top center; }
         .portrait-card::after {
             content:''; position:absolute; inset:0;
-            background:linear-gradient(180deg, transparent 55%, rgba(5,6,10,0.85) 100%);
+            background:linear-gradient(180deg, transparent 60%, rgba(5,6,10,0.9) 100%);
         }
+        .portrait-ring { inset:-8%; }
         .portrait-shine { position:absolute; inset:0; background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.14) 45%, transparent 60%); background-size:250% 100%; animation:shine 5.5s ease-in-out infinite; z-index:2; pointer-events:none; }
         @keyframes shine { 0%{background-position:150% 0} 100%{background-position:-150% 0} }
-        .portrait-name { position:absolute; left:1.4rem; bottom:1.3rem; z-index:3; }
+        .portrait-name { position:absolute; left:0; right:0; bottom:2.4rem; z-index:3; text-align:center; }
         .portrait-name strong { font-family:var(--font-display); font-size:1.25rem; display:block; }
         .portrait-name small { color:var(--text-muted); font-size:0.8rem; }
         .avatar-placeholder { display:none; align-items:center; justify-content:center; height:100%; font-family:var(--font-display); font-size:5rem; font-weight:800; color:var(--primary-2); }
@@ -296,9 +297,9 @@
         }
         .chip b { color:var(--text); font-family:var(--font-display); font-size:1rem; }
         .chip i { width:30px; height:30px; display:grid; place-items:center; border-radius:9px; background:rgba(124,108,255,0.16); color:var(--primary-2); }
-        .chip-1 { top:8%; left:-14%; animation-delay:0s; }
-        .chip-2 { top:40%; right:-16%; animation-delay:-2s; }
-        .chip-3 { bottom:-5%; right:-8%; animation-delay:-4s; }
+        .chip-1 { top:10%; left:-12%; animation-delay:0s; }
+        .chip-2 { top:44%; right:-18%; animation-delay:-2s; }
+        .chip-3 { bottom:4%; left:-6%; animation-delay:-4s; }
         .chip-3 i { background:rgba(46,230,166,0.14); color:var(--mint); }
         .chip-2 i { background:rgba(255,138,61,0.16); color:var(--accent); }
         @keyframes chipFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
@@ -308,7 +309,7 @@
             .portrait-wrap { width:min(340px,80%); }
             .chip-1 { left:-6%; } .chip-2 { right:-8%; } .chip-3 { right:-4%; }
         }
-        @media (max-width:520px) { .chip { font-size:0.7rem; padding:0.5rem 0.7rem; } .chip-1{left:-2%} .chip-2{right:-4%} .chip-3{right:0;bottom:-11%} .portrait-name{bottom:3.2rem} }
+        @media (max-width:520px) { .chip { font-size:0.7rem; padding:0.5rem 0.7rem; } .chip-1{left:-2%} .chip-2{right:-4%} .chip-3{left:0;bottom:-4%} .portrait-name{bottom:3.4rem} }
 
         /* ================= MARQUEE ================= */
         .marquee-wrap { position:relative; z-index:2; padding:0.5rem 0 1rem; border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:rgba(255,255,255,0.015); overflow:hidden; }
