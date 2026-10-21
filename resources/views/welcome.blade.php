@@ -1,8 +1,14 @@
 @extends('layouts.frontend.main')
 
-@section('title', 'Arslan Khan — Fullstack Laravel Developer')
+@section('title', 'Arslan Khan — Fullstack Laravel Developer & AI Automation Engineer')
 
 @section('content')
+
+@php
+    // Experience counted from 2020 to the current year
+    $expYears = max(1, (int) date('Y') - 2021);
+    $expWords = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten'][$expYears] ?? $expYears;
+@endphp
 
 {{-- ===== HERO ===== --}}
 <section class="hero" id="home">
@@ -10,97 +16,139 @@
         <div class="hero-inner">
 
             <div class="hero-text">
-                <div class="hero-badge" id="heroBadge">
-                    <span class="badge-dot"></span>
-                    Available for new projects
-                </div>
+                <div class="hero-badge"><span class="pulse-dot"></span> Available for new projects</div>
 
-                <h1 class="hero-title" id="heroTitle">
-                    Fullstack Laravel<br>
-                    Developer &amp;<br>
-                    <span class="gradient-text">Web Craftsman.</span>
+                <h1 class="hero-title">
+                    <span class="line"><span>Fullstack Laravel</span></span>
+                    <span class="line"><span>Developer &amp;</span></span>
+                    <span class="line"><span class="gradient-text">AI Automation.</span></span>
                 </h1>
 
-                <p class="hero-role" id="heroRole">
-                    &gt;&nbsp;<span id="typedRole">Laravel Developer</span><span class="blink"></span>
+                <p class="hero-role"><span class="prompt">&gt;</span> <span id="typedRole">Laravel Developer</span><span class="blink"></span></p>
+
+                <p class="hero-desc">
+                    I build fast, scalable web products — Laravel APIs, Vue &amp; React frontends, and AI-powered automation that saves teams real hours every week.
                 </p>
 
-                <p class="hero-desc" id="heroDesc">
-                    Fullstack developer with 5+ years crafting fast, scalable applications. From Laravel APIs to Vue.js frontends — I ship products that perform.
-                </p>
-
-                <div class="hero-actions" id="heroActions">
-                    <a href="#projects" class="btn-primary"><i class="fas fa-eye"></i> View Work</a>
-                    <a href="#contact" class="btn-ghost"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View Work <i class="fas fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-ghost"><i class="fas fa-paper-plane"></i> Get in Touch</a>
                 </div>
 
-                <div class="hero-pills" id="heroPills">
+                <div class="hero-pills">
                     <span class="tech-pill"><i class="fab fa-laravel"></i> Laravel</span>
                     <span class="tech-pill"><i class="fab fa-vuejs"></i> Vue.js</span>
-                    <span class="tech-pill"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="tech-pill"><i class="fab fa-react"></i> React</span>
+                    <span class="tech-pill"><i class="fas fa-robot"></i> AI</span>
                     <span class="tech-pill"><i class="fab fa-aws"></i> AWS</span>
                     <span class="tech-pill"><i class="fab fa-wordpress"></i> WordPress</span>
-                    <span class="tech-pill"><i class="fas fa-robot"></i> AI</span>
                 </div>
             </div>
 
-            <div class="hero-image-wrap">
-                <div class="hero-avatar" id="heroAvatar">
-                    <div class="avatar-ring-wrap"></div>
-                    <img src="{{ asset('/frontend/assets/Profile-Pic.png') }}"
-                         alt="Arslan Khan"
-                         onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
-                    <div class="avatar-placeholder" style="display:none">AK</div>
-                    <div class="avatar-badge"><span class="dot"></span> Open to work</div>
+            <div class="hero-visual">
+                <div class="portrait-wrap">
+                    <div class="portrait-ring"></div>
+                    <div class="portrait-card" data-tilt>
+                        <div class="portrait-shine"></div>
+                        <img src="{{ asset('/frontend/assets/Profile-Pic.png') }}" alt="Arslan Khan"
+                             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+                        <div class="avatar-placeholder">AK</div>
+                        <div class="portrait-name"><strong>Arslan Khan</strong><small>Lahore, Pakistan</small></div>
+                    </div>
+                    <div class="chip chip-1"><i class="fab fa-laravel"></i><div><b>{{ $expYears }}+ yrs</b><br>Laravel</div></div>
+                    <div class="chip chip-2"><i class="fas fa-robot"></i><div><b>AI</b><br>Automation</div></div>
+                    <div class="chip chip-3"><i class="fas fa-check"></i><div><b>50+</b><br>Projects shipped</div></div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>
+
+{{-- ===== TECH MARQUEE ===== --}}
+<div class="marquee-wrap" aria-hidden="true">
+    <div class="marquee">
+        @for ($i = 0; $i < 2; $i++)
+        <span class="marquee-item"><i class="fab fa-laravel"></i> Laravel <span class="sep"></span></span>
+        <span class="marquee-item"><i class="fab fa-vuejs"></i> Vue.js <span class="sep"></span></span>
+        <span class="marquee-item"><i class="fab fa-react"></i> React <span class="sep"></span></span>
+        <span class="marquee-item"><i class="fas fa-robot"></i> OpenAI &amp; Gemini <span class="sep"></span></span>
+        <span class="marquee-item"><i class="fas fa-database"></i> MySQL <span class="sep"></span></span>
+        <span class="marquee-item"><i class="fab fa-aws"></i> AWS <span class="sep"></span></span>
+        <span class="marquee-item"><i class="fab fa-wordpress"></i> WordPress <span class="sep"></span></span>
+        <span class="marquee-item"><i class="fas fa-bolt"></i> n8n / Zapier <span class="sep"></span></span>
+        <span class="marquee-item"><i class="fab fa-bootstrap"></i> Bootstrap <span class="sep"></span></span>
+        <span class="marquee-item"><i class="fab fa-js"></i> JavaScript <span class="sep"></span></span>
+        @endfor
+    </div>
+</div>
 
 {{-- ===== ABOUT ===== --}}
 <section id="about">
     <div class="container">
         <div class="section-header">
-            <p class="section-eyebrow">// about_me</p>
-            <h2 class="section-title">The developer behind<br>the <span class="gradient-text">code</span>.</h2>
+            <div class="reveal">
+                <p class="eyebrow">about</p>
+                <h2 class="section-title">The developer behind<br>the <span class="gradient-text">code</span>.</h2>
+            </div>
+            <p class="section-lead reveal" data-delay="120">{{ $expWords }} years of shipping products for startups and agencies — from first commit to production, with the same care at every step.</p>
         </div>
-        <div class="bento-grid">
-            <div class="bento-card bento-wide">
-                <p class="bento-label">// intro</p>
-                <h3 class="bento-heading">I'm Arslan Khan, a Fullstack Laravel Developer</h3>
-                <p class="bento-text">Based in Lahore, Pakistan, I build end-to-end web applications with a focus on performance, clean architecture, and great user experiences. My work spans from API design to polished frontends.</p>
-                <p class="bento-text">I care about writing code that's maintainable, scalable, and actually ships. Whether it's a complex SaaS dashboard or a high-traffic WordPress site, I bring the same level of precision to every project.</p>
-                <div class="avail-badge"><span class="dot"></span> Currently open to freelance &amp; full-time roles</div>
-                <div class="location-line"><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</div>
-            </div>
-            <div class="bento-card">
-                <p class="bento-label">// experience</p>
-                <div class="stat-big" data-target="5" data-suffix="+">0+</div>
-                <p class="stat-sub">Years of professional<br>development experience</p>
-            </div>
-            <div class="bento-card">
-                <p class="bento-label">// delivered</p>
-                <div class="stat-big" data-target="50" data-suffix="+">0+</div>
-                <p class="stat-sub">Projects shipped across<br>startups and agencies</p>
-            </div>
-            <div class="bento-card">
-                <p class="bento-label">// core_stack</p>
-                <div class="tech-mini-grid">
-                    <span class="tech-mini"><i class="fab fa-laravel"></i> Laravel</span>
-                    <span class="tech-mini"><i class="fab fa-php"></i> PHP 8</span>
-                    <span class="tech-mini"><i class="fab fa-vuejs"></i> Vue.js</span>
-                    <span class="tech-mini"><i class="fas fa-database"></i> MySQL</span>
-                    <span class="tech-mini"><i class="fab fa-aws"></i> AWS</span>
-                    <span class="tech-mini"><i class="fab fa-wordpress"></i> WordPress</span>
-                    <span class="tech-mini"><i class="fab fa-bootstrap"></i> Bootstrap</span>
-                    <span class="tech-mini"><i class="fas fa-code"></i> jQuery</span>
+
+        <div class="bento">
+            <div class="card b-intro reveal" data-dir="left">
+                <p class="b-label">intro</p>
+                <h3 class="b-heading">I'm Arslan Khan — a Fullstack Laravel Developer and AI Automation Engineer.</h3>
+                <p class="b-text">Based in Lahore, Pakistan, I build end-to-end web applications with a focus on performance, clean architecture, and great user experience. My work spans API design, polished frontends, and AI workflows that remove manual busywork.</p>
+                <p class="b-text">I care about code that's maintainable, scalable, and actually ships. Whether it's a multi-tenant SaaS dashboard or a high-traffic WooCommerce store, every project gets the same precision.</p>
+                <div class="b-meta">
+                    <span class="avail"><span class="pulse-dot"></span> Open to freelance &amp; full-time roles</span>
+                    <span class="loc"><i class="fas fa-map-marker-alt"></i> Lahore, Pakistan</span>
                 </div>
             </div>
-            <div class="bento-card bento-highlight">
-                <p class="bento-label">// satisfaction</p>
-                <div class="stat-big" data-target="100" data-suffix="%">0%</div>
-                <p class="stat-sub">Client satisfaction rate<br>across all engagements</p>
+
+            <div class="card b-stat reveal" data-dir="right" data-delay="80">
+                <div>
+                    <p class="b-label">experience</p>
+                    <div class="stat-row"><span class="stat-num" data-target="{{ $expYears }}" data-suffix="+">0+</span></div>
+                    <p class="stat-sub">Years of professional development</p>
+                </div>
+                <div class="spark"><i style="height:40%"></i><i style="height:55%"></i><i style="height:48%"></i><i style="height:70%"></i><i style="height:62%"></i><i style="height:85%"></i><i style="height:78%"></i><i style="height:100%"></i></div>
+            </div>
+
+            <div class="card b-stat b-highlight reveal" data-dir="right" data-delay="160">
+                <div>
+                    <p class="b-label">delivered</p>
+                    <div class="stat-row"><span class="stat-num" data-target="50" data-suffix="+">0+</span></div>
+                    <p class="stat-sub">Projects shipped across startups and agencies</p>
+                </div>
+                <div class="spark"><i style="height:30%"></i><i style="height:45%"></i><i style="height:60%"></i><i style="height:52%"></i><i style="height:75%"></i><i style="height:68%"></i><i style="height:90%"></i><i style="height:100%"></i></div>
+            </div>
+
+            <div class="card b-quote reveal" data-dir="zoom">
+                <div class="q-row">
+                    <span class="q-mark">&ldquo;</span>
+                    <blockquote>Good software is invisible — it just works, scales quietly, and lets the business move faster.</blockquote>
+                </div>
+                <div class="principles">
+                    <span class="principle"><i class="fas fa-check"></i> Clean, tested code</span>
+                    <span class="principle"><i class="fas fa-check"></i> Clear weekly updates</span>
+                    <span class="principle"><i class="fas fa-check"></i> On-time delivery</span>
+                    <span class="principle"><i class="fas fa-check"></i> Post-launch support</span>
+                </div>
+            </div>
+
+            <div class="card b-stack reveal" data-dir="right" data-delay="100">
+                <p class="b-label">core stack</p>
+                <div class="stack-grid">
+                    <span class="stack-item"><i class="fab fa-laravel"></i> Laravel</span>
+                    <span class="stack-item"><i class="fas fa-robot"></i> AI / LLMs</span>
+                    <span class="stack-item"><i class="fab fa-vuejs"></i> Vue.js</span>
+                    <span class="stack-item"><i class="fab fa-react"></i> React</span>
+                    <span class="stack-item"><i class="fas fa-database"></i> MySQL</span>
+                    <span class="stack-item"><i class="fab fa-aws"></i> AWS</span>
+                    <span class="stack-item"><i class="fab fa-wordpress"></i> WordPress</span>
+                    <span class="stack-item"><i class="fas fa-bolt"></i> Automation</span>
+                </div>
             </div>
         </div>
     </div>
@@ -110,80 +158,40 @@
 <section id="skills">
     <div class="container">
         <div class="section-header">
-            <p class="section-eyebrow">// skill_set</p>
-            <h2 class="section-title">Technologies I<br>work with <span class="gradient-text">daily</span>.</h2>
+            <div class="reveal">
+                <p class="eyebrow">skills</p>
+                <h2 class="section-title">Technologies I<br>work with <span class="gradient-text">daily</span>.</h2>
+            </div>
+            <p class="section-lead reveal" data-delay="120">Deep on the Laravel ecosystem, fluent across the modern frontend, and building production AI features since 2023.</p>
         </div>
+
         <div class="skills-grid">
-            <div class="skill-card">
-                <div class="skill-icon-box"><i class="fab fa-laravel"></i></div>
-                <h3 class="skill-name">Laravel</h3>
-                <p class="skill-desc">REST APIs, queues, events, Livewire, Sanctum, and full MVC architecture at scale.</p>
-                <div class="skill-track"><div class="skill-bar" data-width="95%"></div></div>
-                <p class="skill-pct">95%</p>
+            @php
+            $skills = [
+                ['laravel',     'fab fa-laravel',    'Laravel',            'REST APIs, queues, events, Livewire, Sanctum and clean MVC at scale.',            5, false],
+                ['ai',          'fas fa-robot',      'AI Web Applications', 'OpenAI / Gemini integrations, chatbots, RAG pipelines and AI-driven SaaS features.', 4, true],
+                ['vue',         'fab fa-vuejs',      'Vue.js',             'Composition API, Pinia, Vue Router and component-driven UIs.',                   4, false],
+                ['react',       'fab fa-react',      'React.js',           'Hooks, Redux Toolkit, Next.js SSR and modern component architecture.',          4, false],
+                ['mysql',       'fas fa-database',   'MySQL',              'Schema design, indexing, query optimisation and Eloquent performance.',          5, false],
+                ['aws',         'fab fa-aws',        'AWS',                'EC2, S3, RDS, Lambda, CloudFront and infrastructure automation.',                4, false],
+                ['wordpress',   'fab fa-wordpress',  'WordPress',          'Custom themes, plugins, WooCommerce, performance tuning and headless CMS.',      4, false],
+                ['automation',  'fas fa-bolt',       'Workflow Automation', 'n8n, Zapier and custom pipelines that connect apps and remove manual work.',     4, false],
+                ['bootstrap',   'fab fa-bootstrap',  'Bootstrap',          'Responsive layouts, SASS theming and accessible component patterns.',            5, false],
+                ['js',          'fab fa-js',         'JavaScript / jQuery', 'Async data, DOM-driven interactions and real-time updates.',                    4, false],
+                ['marketing',   'fas fa-chart-line', 'Digital Marketing',  'SEO strategy, Google Ads, analytics and conversion optimisation.',               3, false],
+            ];
+            @endphp
+            @foreach ($skills as $i => [$key, $icon, $name, $desc, $level, $featured])
+            <div class="card skill reveal {{ $featured ? 'featured conic' : '' }}" data-dir="flip" data-delay="{{ ($i % 5) * 70 }}" data-tilt>
+                <div class="skill-icon"><i class="{{ $icon }}"></i></div>
+                <h3>{{ $name }}</h3>
+                <p>{{ $desc }}</p>
+                <div class="level">
+                    <span class="dots">@for ($d = 1; $d <= 5; $d++)<i class="{{ $d <= $level ? 'on' : '' }}"></i>@endfor</span>
+                    <span>{{ ['', 'basic', 'working', 'strong', 'advanced', 'expert'][$level] }}</span>
+                </div>
             </div>
-            <div class="skill-card">
-                <div class="skill-icon-box"><i class="fab fa-vuejs"></i></div>
-                <h3 class="skill-name">Vue.js</h3>
-                <p class="skill-desc">Component-driven UIs, Vuex/Pinia, Vue Router, and composables with Composition API.</p>
-                <div class="skill-track"><div class="skill-bar" data-width="82%"></div></div>
-                <p class="skill-pct">82%</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon-box"><i class="fas fa-database"></i></div>
-                <h3 class="skill-name">MySQL</h3>
-                <p class="skill-desc">Schema design, query optimisation, indexing, Eloquent ORM and raw query performance.</p>
-                <div class="skill-track"><div class="skill-bar" data-width="88%"></div></div>
-                <p class="skill-pct">88%</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon-box"><i class="fab fa-aws"></i></div>
-                <h3 class="skill-name">AWS</h3>
-                <p class="skill-desc">EC2, S3, RDS, Lambda, CloudFront deployment and infrastructure automation.</p>
-                <div class="skill-track"><div class="skill-bar" data-width="75%"></div></div>
-                <p class="skill-pct">75%</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon-box"><i class="fab fa-wordpress"></i></div>
-                <h3 class="skill-name">WordPress</h3>
-                <p class="skill-desc">Custom themes, plugin development, WooCommerce, performance tuning and headless CMS.</p>
-                <div class="skill-track"><div class="skill-bar" data-width="85%"></div></div>
-                <p class="skill-pct">85%</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon-box"><i class="fab fa-bootstrap"></i></div>
-                <h3 class="skill-name">Bootstrap</h3>
-                <p class="skill-desc">Responsive layouts, utility customisation, SASS theming and accessible component patterns.</p>
-                <div class="skill-track"><div class="skill-bar" data-width="90%"></div></div>
-                <p class="skill-pct">90%</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon-box"><i class="fab fa-js"></i></div>
-                <h3 class="skill-name">jQuery / AJAX</h3>
-                <p class="skill-desc">Dynamic page interactions, async data fetching, DOM manipulation and real-time updates.</p>
-                <div class="skill-track"><div class="skill-bar" data-width="88%"></div></div>
-                <p class="skill-pct">88%</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon-box"><i class="fab fa-react"></i></div>
-                <h3 class="skill-name">React.js</h3>
-                <p class="skill-desc">Hooks, Context API, Redux Toolkit, Next.js SSR/SSG and modern component architecture.</p>
-                <div class="skill-track"><div class="skill-bar" data-width="80%"></div></div>
-                <p class="skill-pct">80%</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon-box"><i class="fas fa-robot"></i></div>
-                <h3 class="skill-name">AI Web Applications</h3>
-                <p class="skill-desc">OpenAI / Gemini API integration, chatbots, RAG pipelines, and AI-driven SaaS features.</p>
-                <div class="skill-track"><div class="skill-bar" data-width="72%"></div></div>
-                <p class="skill-pct">72%</p>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon-box"><i class="fas fa-chart-line"></i></div>
-                <h3 class="skill-name">Digital Marketing</h3>
-                <p class="skill-desc">SEO strategy, Google Ads, analytics, conversion optimisation and performance marketing.</p>
-                <div class="skill-track"><div class="skill-bar" data-width="70%"></div></div>
-                <p class="skill-pct">70%</p>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -192,127 +200,63 @@
 <section id="projects">
     <div class="container">
         <div class="section-header">
-            <p class="section-eyebrow">// selected_work</p>
-            <h2 class="section-title">Projects that<br>speak for <span class="gradient-text">themselves</span>.</h2>
+            <div class="reveal">
+                <p class="eyebrow">selected work</p>
+                <h2 class="section-title">Projects that<br>speak for <span class="gradient-text">themselves</span>.</h2>
+            </div>
+            <div class="filters reveal" data-dir="right" data-delay="100">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI</button>
+                <button class="filter-btn" data-filter="laravel">Laravel</button>
+                <button class="filter-btn" data-filter="vue">Vue.js</button>
+                <button class="filter-btn" data-filter="react">React</button>
+                <button class="filter-btn" data-filter="wordpress">WordPress</button>
+                <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+            </div>
         </div>
-        <div class="proj-filter">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="laravel">Laravel</button>
-            <button class="filter-btn" data-filter="vue">Vue.js</button>
-            <button class="filter-btn" data-filter="react">React</button>
-            <button class="filter-btn" data-filter="ai">AI</button>
-            <button class="filter-btn" data-filter="wordpress">WordPress</button>
-            <button class="filter-btn" data-filter="ecommerce">E-Commerce</button>
+
+        {{-- Featured: AI --}}
+        <div class="card conic proj-featured reveal" data-dir="zoom" data-category="ai laravel vue">
+            <div class="proj-media">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1400&q=80" alt="AI Customer Support Bot" loading="lazy">
+                <span class="proj-badge hot"><i class="fas fa-robot"></i>&nbsp; AI · Featured</span>
+                <a href="#contact" class="proj-link" aria-label="Discuss a similar project"><i class="fas fa-arrow-up"></i></a>
+            </div>
+            <div class="proj-body">
+                <p class="proj-kicker">SaaS · Customer Support</p>
+                <h3 class="proj-title">AI Customer Support Bot</h3>
+                <p class="proj-desc">GPT-4 powered support assistant with a RAG pipeline over the company's docs, automatic ticket routing, sentiment detection and a human hand-off flow. Cut first-response time by 80% for a 12-person support team.</p>
+                <div class="proj-tags"><span class="tag">Laravel</span><span class="tag">OpenAI</span><span class="tag">Vue 3</span><span class="tag">Redis</span><span class="tag">Pinecone</span></div>
+                <div class="proj-cta"><a href="#contact" class="btn btn-ghost">Build something like this <i class="fas fa-arrow-right"></i></a></div>
+            </div>
         </div>
+
         <div class="proj-grid">
-
-            {{-- 1. AI first --}}
-            <div class="proj-card proj-featured" data-category="ai laravel">
-                <div class="proj-img">
-                    <img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=640&q=80" alt="AI Customer Support Bot">
-                    <div class="proj-img-overlay"></div>
-                    <span class="proj-badge">AI</span>
+            @php
+            $projects = [
+                ['ai laravel',          'photo-1555255707-c07966088b7b', 'AI · Automation',   'AI Lead Qualification Agent', 'Inbound leads scored and enriched by an LLM, auto-replied via WhatsApp and pushed to the CRM — zero manual triage.', ['Laravel','OpenAI','n8n','WhatsApp API'], 'AI'],
+                ['react ecommerce',     'photo-1522202176988-66273c2fd55f', 'EdTech',            'React E-Learning Platform',    'Course platform with video streaming, progress tracking, quizzes, certificates and instructor dashboards.', ['React','Laravel API','AWS S3','Stripe'], 'React'],
+                ['laravel vue',         'photo-1551288049-bebda4e38f71', 'SaaS · Analytics',  'SaaS Analytics Dashboard',     'Multi-tenant analytics with real-time charts, role-based access and subscription billing via Stripe.', ['Laravel 10','Vue 3','Sanctum','AWS'], 'Laravel'],
+                ['ecommerce laravel',   'photo-1556742049-0cfed4f6a45d', 'Marketplace',       'Multi-Vendor Marketplace',     'Vendor portals, inventory management, split payments and an automated payout system.', ['Laravel','MySQL','jQuery','S3'], 'E-Commerce'],
+                ['wordpress ecommerce', 'photo-1441984904996-e0b6ba687e04', 'Retail',            'WooCommerce Fashion Store',    'Custom WooCommerce theme with advanced filtering, wishlist, loyalty programme and mobile-first UX.', ['WordPress','WooCommerce','PHP'], 'WordPress'],
+                ['laravel vue',         'photo-1560518883-ce09059eeffa', 'PropTech',          'Real Estate Portal',           'Property listings with map search, agent CRM, virtual tours and a lead management pipeline.', ['Laravel','Vue.js','Google Maps'], 'Laravel'],
+            ];
+            @endphp
+            @foreach ($projects as $i => [$cat, $photo, $kicker, $title, $desc, $tags, $badge])
+            <div class="card proj reveal" data-delay="{{ ($i % 3) * 90 }}" data-category="{{ $cat }}" data-tilt>
+                <div class="proj-media">
+                    <img src="https://images.unsplash.com/{{ $photo }}?auto=format&fit=crop&w=900&q=80" alt="{{ $title }}" loading="lazy">
+                    <span class="proj-badge {{ $badge === 'AI' ? 'hot' : '' }}">{{ $badge }}</span>
+                    <a href="#contact" class="proj-link" aria-label="Discuss a similar project"><i class="fas fa-arrow-up"></i></a>
                 </div>
                 <div class="proj-body">
-                    <h3 class="proj-title">AI Customer Support Bot</h3>
-                    <p class="proj-desc">GPT-4 powered support chatbot with RAG pipeline, ticket auto-routing, and sentiment analysis for SaaS companies.</p>
-                    <div class="proj-tags">
-                        <span class="tag">Laravel</span><span class="tag">OpenAI</span><span class="tag">Vue.js</span><span class="tag">Redis</span>
-                    </div>
+                    <p class="proj-kicker">{{ $kicker }}</p>
+                    <h3 class="proj-title">{{ $title }}</h3>
+                    <p class="proj-desc">{{ $desc }}</p>
+                    <div class="proj-tags">@foreach ($tags as $t)<span class="tag">{{ $t }}</span>@endforeach</div>
                 </div>
             </div>
-
-            {{-- 2. React E-Learning --}}
-            <div class="proj-card" data-category="react ecommerce">
-                <div class="proj-img">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=640&q=80" alt="E-Learning Platform">
-                    <div class="proj-img-overlay"></div>
-                    <span class="proj-badge">React</span>
-                </div>
-                <div class="proj-body">
-                    <h3 class="proj-title">React E-Learning Platform</h3>
-                    <p class="proj-desc">Interactive course platform with video streaming, progress tracking, quizzes, certificates, and instructor dashboards.</p>
-                    <div class="proj-tags">
-                        <span class="tag">React</span><span class="tag">Laravel API</span><span class="tag">AWS S3</span><span class="tag">Stripe</span>
-                    </div>
-                </div>
-            </div>
-
-            {{-- 3. SaaS Dashboard --}}
-            <div class="proj-card" data-category="laravel vue">
-                <div class="proj-img">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=640&q=80" alt="SaaS Dashboard">
-                    <div class="proj-img-overlay"></div>
-                </div>
-                <div class="proj-body">
-                    <h3 class="proj-title">SaaS Analytics Dashboard</h3>
-                    <p class="proj-desc">Multi-tenant analytics platform with real-time charts, role-based access, and subscription billing via Stripe.</p>
-                    <div class="proj-tags">
-                        <span class="tag">Laravel 10</span><span class="tag">Vue 3</span><span class="tag">Sanctum</span><span class="tag">AWS</span>
-                    </div>
-                </div>
-            </div>
-
-            {{-- 4. Multi-Vendor Marketplace --}}
-            <div class="proj-card" data-category="ecommerce laravel">
-                <div class="proj-img">
-                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=640&q=80" alt="E-Commerce Marketplace">
-                    <div class="proj-img-overlay"></div>
-                </div>
-                <div class="proj-body">
-                    <h3 class="proj-title">Multi-Vendor Marketplace</h3>
-                    <p class="proj-desc">Full e-commerce marketplace with vendor portals, inventory management, and automated payout system.</p>
-                    <div class="proj-tags">
-                        <span class="tag">Laravel</span><span class="tag">MySQL</span><span class="tag">jQuery</span><span class="tag">S3</span>
-                    </div>
-                </div>
-            </div>
-
-            {{-- 5. WooCommerce Fashion Store --}}
-            <div class="proj-card" data-category="wordpress ecommerce">
-                <div class="proj-img">
-                    <img src="https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?w=640&q=80" alt="Fashion Store">
-                    <div class="proj-img-overlay"></div>
-                </div>
-                <div class="proj-body">
-                    <h3 class="proj-title">WooCommerce Fashion Store</h3>
-                    <p class="proj-desc">Custom WooCommerce theme with advanced filtering, wishlist, loyalty programme, and mobile-first UX.</p>
-                    <div class="proj-tags">
-                        <span class="tag">WordPress</span><span class="tag">WooCommerce</span><span class="tag">PHP</span>
-                    </div>
-                </div>
-            </div>
-
-            {{-- 6. Real Estate Portal --}}
-            <div class="proj-card" data-category="laravel vue">
-                <div class="proj-img">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=640&q=80" alt="Real Estate Portal">
-                    <div class="proj-img-overlay"></div>
-                </div>
-                <div class="proj-body">
-                    <h3 class="proj-title">Real Estate Portal</h3>
-                    <p class="proj-desc">Property listing platform with map search, agent CRM, virtual tours, and lead management pipeline.</p>
-                    <div class="proj-tags">
-                        <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">Google Maps</span>
-                    </div>
-                </div>
-            </div>
-
-            {{-- 7. HR & Payroll --}}
-            <div class="proj-card" data-category="laravel">
-                <div class="proj-img">
-                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=640&q=80" alt="HR System">
-                    <div class="proj-img-overlay"></div>
-                </div>
-                <div class="proj-body">
-                    <h3 class="proj-title">HR &amp; Payroll System</h3>
-                    <p class="proj-desc">Enterprise HR platform covering recruitment, attendance, payroll processing, and leave management.</p>
-                    <div class="proj-tags">
-                        <span class="tag">Laravel</span><span class="tag">Vue.js</span><span class="tag">MySQL</span>
-                    </div>
-                </div>
-            </div>
-
+            @endforeach
         </div>
     </div>
 </section>
@@ -322,50 +266,59 @@
     <div class="container">
         <div class="contact-wrap">
             <div>
-                <p class="section-eyebrow">// get_in_touch</p>
-                <h2 class="contact-title">Let's build<br>something <span class="gradient-text">great</span>.</h2>
-                <p class="contact-desc">Have a project in mind or looking for a reliable Laravel developer? I'm open to freelance work, full-time positions, and interesting collaborations.</p>
-                <div class="contact-items">
-                    <a href="mailto:arslan.devsspace@gmail.com" class="c-item">
+                <div class="reveal" data-dir="left">
+                    <p class="eyebrow">contact</p>
+                    <h2 class="contact-title">Let's build<br>something <span class="gradient-text">great</span>.</h2>
+                    <p class="contact-desc">Have a project in mind or need a reliable Laravel developer who can also wire up AI? I'm open to freelance work, full-time roles and interesting collaborations.</p>
+                </div>
+                <div class="c-list">
+                    <a href="mailto:arslan.devsspace@gmail.com" class="card c-item reveal" data-dir="left" data-delay="60">
                         <div class="c-icon"><i class="fas fa-envelope"></i></div>
                         <div class="c-text"><h5>Email</h5><p>arslan.devsspace@gmail.com</p></div>
+                        <i class="fas fa-arrow-up c-arrow" style="transform:rotate(45deg)"></i>
                     </a>
-                    <a href="tel:+923044627900" class="c-item">
-                        <div class="c-icon"><i class="fas fa-phone"></i></div>
-                        <div class="c-text"><h5>Phone</h5><p>+92 304 462 7900</p></div>
-                    </a>
-                    <a href="https://www.linkedin.com/in/arslan-khan-041a09204/" target="_blank" class="c-item">
-                        <div class="c-icon"><i class="fab fa-linkedin-in"></i></div>
-                        <div class="c-text"><h5>LinkedIn</h5><p>arslan-khan-041a09204</p></div>
-                    </a>
-                    <a href="https://wa.me/923044627900" target="_blank" class="c-item">
+                    <a href="https://wa.me/923044627900" target="_blank" rel="noopener" class="card c-item reveal" data-dir="left" data-delay="140">
                         <div class="c-icon"><i class="fab fa-whatsapp"></i></div>
                         <div class="c-text"><h5>WhatsApp</h5><p>+92 304 462 7900</p></div>
+                        <i class="fas fa-arrow-up c-arrow" style="transform:rotate(45deg)"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/arslan-khan-041a09204/" target="_blank" rel="noopener" class="card c-item reveal" data-dir="left" data-delay="220">
+                        <div class="c-icon"><i class="fab fa-linkedin-in"></i></div>
+                        <div class="c-text"><h5>LinkedIn</h5><p>arslan-khan-041a09204</p></div>
+                        <i class="fas fa-arrow-up c-arrow" style="transform:rotate(45deg)"></i>
+                    </a>
+                    <a href="tel:+923044627900" class="card c-item reveal" data-dir="left" data-delay="300">
+                        <div class="c-icon"><i class="fas fa-phone"></i></div>
+                        <div class="c-text"><h5>Phone</h5><p>+92 304 462 7900</p></div>
+                        <i class="fas fa-arrow-up c-arrow" style="transform:rotate(45deg)"></i>
                     </a>
                 </div>
             </div>
-            <div class="form-box">
+
+            <div class="card conic form-box reveal" data-dir="zoom" data-delay="100">
                 <form id="contactForm" action="{{ route('contact.store') }}" method="POST">
                     @csrf
-                    <div class="form-group">
-                        <label class="form-label" for="name">Full Name</label>
-                        <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
-                    </div>
-                    <div class="form-group">
-                        <label class="form-label" for="email">Email Address</label>
-                        <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
+                    <div class="form-grid" style="margin-bottom:1rem;">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Full name</label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email address</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Project Discussion">
+                        <input type="text" id="subject" name="subject" class="form-control" placeholder="Project discussion">
                     </div>
                     <div class="form-group">
                         <label class="form-label" for="message">Message</label>
-                        <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project..." required></textarea>
+                        <textarea id="message" name="message" class="form-control" placeholder="Tell me about your project…" required></textarea>
                     </div>
-                    <button type="submit" class="btn-send" id="submitBtn">
+                    <button type="submit" class="btn btn-primary btn-send" id="submitBtn">
                         <i class="fas fa-paper-plane"></i>
-                        <span>Send Message</span>
+                        <span>Send message</span>
                     </button>
                     <p id="formMsg" style="display:none;text-align:center;margin-top:1rem;font-size:0.85rem;"></p>
                 </form>
@@ -399,22 +352,22 @@
             });
             const data = await res.json().catch(() => ({}));
             if (res.ok) {
-                msg.textContent = data.message || "Message sent! I'll get back to you soon.";
-                msg.style.color = 'var(--green)';
+                msg.textContent = data.message || "Message sent — I'll get back to you soon.";
+                msg.style.color = 'var(--mint)';
                 form.reset();
-                btn.innerHTML = '<i class="fas fa-check"></i> <span>Sent!</span>';
-                btn.style.background = 'var(--green)';
+                btn.innerHTML = '<i class="fas fa-check"></i> <span>Sent</span>';
+                btn.style.background = 'var(--mint)';
             } else {
                 msg.textContent = data.message || 'Something went wrong. Please try again.';
                 msg.style.color = '#f87171';
                 btn.disabled = false;
-                btn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Send Message</span>';
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Send message</span>';
             }
         } catch(err) {
             msg.textContent = 'Network error. Please try again.';
             msg.style.color = '#f87171';
             btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Send Message</span>';
+            btn.innerHTML = '<i class="fas fa-paper-plane"></i> <span>Send message</span>';
         }
         msg.style.display = 'block';
     });

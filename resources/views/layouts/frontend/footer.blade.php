@@ -1,8 +1,7 @@
 <footer class="site-footer">
-    <div class="footer-brand" style="display:flex;align-items:center;gap:0.5rem;">
+    <div class="footer-brand">
         <img src="{{ asset('/frontend/assets/Profile-Pic.png') }}"
              alt="Arslan Khan"
-             style="width:34px;height:34px;border-radius:50%;object-fit:cover;border:2px solid rgba(109,93,252,0.4);flex-shrink:0;"
              onerror="this.style.display='none'">
         Arslan<span>.</span>
     </div>
