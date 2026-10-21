@@ -35,12 +35,12 @@
                 </div>
 
                 <div class="hero-pills" id="heroPills">
-                    <span class="tech-pill"><i class="fab fa-php"></i> PHP 8</span>
                     <span class="tech-pill"><i class="fab fa-laravel"></i> Laravel</span>
                     <span class="tech-pill"><i class="fab fa-vuejs"></i> Vue.js</span>
                     <span class="tech-pill"><i class="fab fa-js"></i> JavaScript</span>
                     <span class="tech-pill"><i class="fab fa-aws"></i> AWS</span>
                     <span class="tech-pill"><i class="fab fa-wordpress"></i> WordPress</span>
+                    <span class="tech-pill"><i class="fas fa-robot"></i> AI</span>
                 </div>
             </div>
 

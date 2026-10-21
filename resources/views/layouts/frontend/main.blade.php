@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     @yield('meta')
-    <link rel="icon" type="image/png" href="{{ asset('/frontend/assets/Profile-Pic.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('/frontend/assets/Profile-Pic.png') }}" id="favicon">
     <style>
         /* ===== TOKENS ===== */
         :root {
@@ -809,7 +809,7 @@
     }
 
     /* ── TYPEWRITER ── */
-    const roles = ['Laravel Developer','PHP Specialist','Vue.js Engineer','Fullstack Builder'];
+    const roles = ['Laravel Developer','AI Automation Engineer','Vue.js Engineer','Fullstack Builder'];
     let ri=0, ci=0, del=false;
     const tyEl = document.getElementById('typedRole');
     if (tyEl) {
@@ -974,6 +974,25 @@
         );
     });
 
+})();
+
+/* ── CIRCULAR FAVICON ── */
+(function(){
+    const img = new Image();
+    img.crossOrigin = 'anonymous';
+    img.onload = function(){
+        const c = document.createElement('canvas');
+        c.width = c.height = 64;
+        const ctx = c.getContext('2d');
+        ctx.beginPath();
+        ctx.arc(32, 32, 32, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.clip();
+        ctx.drawImage(img, 0, 0, 64, 64);
+        const link = document.getElementById('favicon');
+        if(link) link.href = c.toDataURL('image/png');
+    };
+    img.src = '{{ asset('/frontend/assets/Profile-Pic.png') }}';
 })();
 </script>
 
